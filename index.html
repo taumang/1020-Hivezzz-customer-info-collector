@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
+    <title>1020 Hivezzz Short Buzzz</title>
+</head>
+<body class="bg-black h-screen flex flex-col items-center justify-center">
+    <nav class="bg-1020-hivezzz-500 flex items-center justify-center">
+      <img src="/img/Another_one_logo_1020Hivezzz(White_with_Yellow).png" alt="1020 Hivezzz logo" class="h-24">
+    </nav>
+    <form action="https://sheetdb.io/api/v1/jvvo5j47mqixe" method="post" id="sheetdb-form"class="bg-white p-6 rounded-lg mt-8">
+      <h1 class="text-lg font-medium mb-4">Sign Up</h1>
+      <div class="mb-4">
+        <label class="block text-gray-700 font-medium mb-2">Name</label>
+        <input class="border border-gray-400 p-2 rounded-lg w-full" type="text" id="name" name="data[name]">
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 font-medium mb-2">Surname</label>
+        <input class="border border-gray-400 p-2 rounded-lg w-full" type="text" id="surname" name="data[surname]">
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 font-medium mb-2">Phone Number</label>
+        <input class="border border-gray-400 p-2 rounded-lg w-full" type="text" id="phone" name="data[phone]">
+      </div>
+      <button class="bg-yellow-400 text-black p-2 rounded-lg hover:bg-yellow-200" onclick="generateCode()">Generate Code</button>
+      <p class="text-center text-gray-600 mt-4 text-white" type="text" id="code" name="data[10-digit_code]"></p>
+    </form>
+    <script>
+        var form = document.getElementById('sheetdb-form');
+        var code = Math.random().toString().slice(-10);
+      document.getElementById("code").innerHTML = `Code: ${code}`;
+      
+        form.addEventListener("submit",event => {
+            event.preventDefault();
+            fetch(form.action, {
+                method: "POST",
+                body: new FormData(document.getElementById("sheetdb-form")),
+                
+            }).then(
+                Response => response.json()
+            ).then((html) => {
+                window.open('d.html','_blank');
+            })
+        })
+
+        // code.addEventListener("submit",event =>{
+        //     event.preventDefault();
+        //     fetch(code.action, {
+        //         method: "POST",
+        //         body: new FormatData(document.getElementById("sheetdb-form")),
+        //     }).then(Response => response.json())
+        //     .then((html)=>{
+        //         window.open('d.html','_blank')
+        //     })
+        // })
+    </script>
+  </body>
+</html>
