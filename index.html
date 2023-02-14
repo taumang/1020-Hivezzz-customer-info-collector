@@ -25,14 +25,16 @@
         <label class="block text-gray-700 font-medium mb-2">Phone Number</label>
         <input class="border border-gray-400 p-2 rounded-lg w-full" type="text" id="phone" name="data[phone]">
       </div>
-      <button class="bg-yellow-400 text-black p-2 rounded-lg hover:bg-yellow-200" onclick="generateCode()">Sign Up</button>
+      <button class="bg-yellow-400 text-black p-2 rounded-lg hover:bg-yellow-200" onclick="generateCode()" onload="showMessage()">Sign Up</button>
       
     </form>
     <script>
         var form = document.getElementById('sheetdb-form');
         var code = Math.random().toString().slice(-10);
       document.getElementById("code").innerHTML = `Code: ${code}`;
-      
+      function showMessage(){
+        alert("Successfully submitted")
+      }
         form.addEventListener("submit",event => {
             event.preventDefault();
             fetch(form.action, {
