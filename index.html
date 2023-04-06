@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/tailwind.min.css">
+    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <title>1020 Hivezzz Short Buzzz</title>
 </head>
 <body class="bg-black h-screen flex flex-col items-center justify-center">
@@ -25,28 +28,52 @@
         <label class="block text-gray-700 font-medium mb-2">Phone Number</label>
         <input class="border border-gray-400 p-2 rounded-lg w-full" type="text" id="phone" name="data[phone]">
       </div>
-      <button class="bg-yellow-400 text-black p-2 rounded-lg hover:bg-yellow-200" onclick="generateCode()" onload="showMessage()">Sign Up</button>
+      <button class="bg-yellow-400 text-black p-2 rounded-lg hover:bg-yellow-200" onclick="submitForm()">Sign Up</button>
       
     </form>
     <script>
-        var form = document.getElementById('sheetdb-form');
-        var code = Math.random().toString().slice(-10);
-      document.getElementById("code").innerHTML = `Code: ${code}`;
-      function showMessage(){
-        alert("Successfully submitted")
-      }
-        form.addEventListener("submit",event => {
-            event.preventDefault();
-            fetch(form.action, {
-                method: "POST",
-                body: new FormData(document.getElementById("sheetdb-form")),
+
+      // Add this JavaScript code to your HTML document or to a separate JS file
+function submitForm() {
+  // Generate a unique 10-digit code
+  var code = generateCode();
+
+  // Set the code value to the hidden input field in the form
+  $('#sheetdb-form').append('<input type="hidden" name="data[code]" value="' + code + '">');
+
+  // Submit the form
+  $('#sheetdb-form').submit();
+
+  alert('Sign up successful! Your unique code is ' + code + '.');
+}
+
+function generateCode() {
+  // Generate a random 10-digit code
+  var code = Math.floor(1000000000 + Math.random() * 9000000000);
+
+  return code;
+}
+
+console.log(submitForm())
+
+      //   var form = document.getElementById('sheetdb-form');
+      //   var code = Math.random().toString().slice(-10);
+      // document.getElementById("code").innerHTML = `Code: ${code}`;
+      // function showMessage(){
+      //   alert("Successfully submitted")
+      // }
+      //   form.addEventListener("submit",event => {
+      //       event.preventDefault();
+      //       fetch(form.action, {
+      //           method: "POST",
+      //           body: new FormData(document.getElementById("sheetdb-form")),
                 
-            }).then(
-                Response => response.json()
-            ).then((html) => {
-                window.open('d.html','_blank');
-            })
-        })
+      //       }).then(
+      //           Response => response.json()
+      //       ).then((html) => {
+      //           window.open('d.html','_blank');
+      //       })
+      //   })
 
         // code.addEventListener("submit",event =>{
         //     event.preventDefault();
