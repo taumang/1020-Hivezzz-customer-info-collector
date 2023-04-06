@@ -28,9 +28,29 @@
         <label class="block text-gray-700 font-medium mb-2">Phone Number</label>
         <input class="border border-gray-400 p-2 rounded-lg w-full" type="text" id="phone" name="data[phone]">
       </div>
+      <!-- <div class="mb-4">
+        <label class="block text-gray-700 font-medium mb-2">Email</label>
+        <input class="border border-gray-400 p-2 rounded-lg w-full" type="text" id="email" name="data[email]">
+      </div> -->
       <button class="bg-yellow-400 text-black p-2 rounded-lg hover:bg-yellow-200" onclick="submitForm()">Sign Up</button>
       
     </form>
+
+
+    <footer>
+      <div class="container mt-8 mr-2.5">
+        <div class="row">
+          <div class="col-md-6 text-white">
+            <p>&copy; 1020 Hivezz. All rights reserved.</p>
+          </div>
+          <!-- <div class="col-md-6 text-white">
+            <p class="text-right">Updated &nbsp;<span id="currentYear"></span></p>
+          </div> -->
+        </div>
+      </div>
+    </footer>
+    
+
     <script>
 
 const generateCode = () => {
@@ -49,6 +69,7 @@ const submitForm = (event) => {
   // Generate a unique 10-digit code
   var code = generateCode();
 
+
   // Set the code value to the hidden input field in the form
   var form = document.getElementById('sheetdb-form');
   var input = document.createElement('input');
@@ -56,6 +77,13 @@ const submitForm = (event) => {
   input.name = 'data[code]';
   input.value = code;
   form.appendChild(input);
+
+  // Display the code to the user in a new input field
+  var codeInput = document.createElement('input');
+  codeInput.type = 'text';
+  codeInput.value = code;
+  codeInput.readOnly = true;
+  form.insertBefore(codeInput, form.firstChild);
 
   // Submit the form
   form.submit();
@@ -73,7 +101,7 @@ const submitForm = (event) => {
 // Attach event listener to form submission button
 var submitButton = document.getElementById('submit-button');
 submitButton.addEventListener('click', submitForm);
-    
+
 
     </script>
   </body>
