@@ -33,58 +33,48 @@
     </form>
     <script>
 
-      // Add this JavaScript code to your HTML document or to a separate JS file
-      const generateCode=()=> {
-        // Generate a random 10-digit code
-        var code = Math.floor(1000000000 + Math.random() * 9000000000);
-      
-        return code;
-      }
-const submitForm= ()=> {
+const generateCode = () => {
+  // Generate a random 10-digit code
+  var code = '';
+  for (var i = 0; i < 10; i++) {
+    code += Math.floor(Math.random() * 10);
+  }
+  return code;
+}
+
+const submitForm = (event) => {
+  // Prevent default form submission behavior
+  event.preventDefault();
+
   // Generate a unique 10-digit code
   var code = generateCode();
 
   // Set the code value to the hidden input field in the form
-  $('#sheetdb-form').append('<input type="hidden" name="data[code]" value="' + code + '">');
+  var form = document.getElementById('sheetdb-form');
+  var input = document.createElement('input');
+  input.type = 'hidden';
+  input.name = 'data[code]';
+  input.value = code;
+  form.appendChild(input);
 
   // Submit the form
-  $('#sheetdb-form').submit();
+  form.submit();
 
+  // Clear all text fields on the page
+  var inputs = document.querySelectorAll('input[type="text"]');
+  for (var i = 0; i < inputs.length; i++) {
+    inputs[i].value = '';
+  }
+
+  // Display success message to user
   alert('Sign up successful! Your unique code is ' + code + '.');
 }
 
+// Attach event listener to form submission button
+var submitButton = document.getElementById('submit-button');
+submitButton.addEventListener('click', submitForm);
+    
 
-console.log(submitForm())
-
-      //   var form = document.getElementById('sheetdb-form');
-      //   var code = Math.random().toString().slice(-10);
-      // document.getElementById("code").innerHTML = `Code: ${code}`;
-      // function showMessage(){
-      //   alert("Successfully submitted")
-      // }
-      //   form.addEventListener("submit",event => {
-      //       event.preventDefault();
-      //       fetch(form.action, {
-      //           method: "POST",
-      //           body: new FormData(document.getElementById("sheetdb-form")),
-                
-      //       }).then(
-      //           Response => response.json()
-      //       ).then((html) => {
-      //           window.open('d.html','_blank');
-      //       })
-      //   })
-
-        // code.addEventListener("submit",event =>{
-        //     event.preventDefault();
-        //     fetch(code.action, {
-        //         method: "POST",
-        //         body: new FormatData(document.getElementById("sheetdb-form")),
-        //     }).then(Response => response.json())
-        //     .then((html)=>{
-        //         window.open('d.html','_blank')
-        //     })
-        // })
     </script>
   </body>
 </html>
