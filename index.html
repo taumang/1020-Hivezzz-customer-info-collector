@@ -34,13 +34,13 @@
     <script>
 
       // Add this JavaScript code to your HTML document or to a separate JS file
-      function generateCode() {
+      const generateCode=()=> {
         // Generate a random 10-digit code
         var code = Math.floor(1000000000 + Math.random() * 9000000000);
       
         return code;
       }
-function submitForm() {
+const submitForm= ()=> {
   // Generate a unique 10-digit code
   var code = generateCode();
 
