@@ -11,15 +11,6 @@
     <title>1020 Hivezzz Short Buzzz</title>
 </head>
 <body class="bg-black h-screen flex flex-col items-center justify-center">
-  
-  <!-- Successful message, with Tailwind styling! -->
-  <div id="submit-button" class="hidden fixed top-0 left-0 w-full h-full bg-green-500 bg-opacity-50 flex  items-center justify-center">
-    <div class="bg-white p-8 rounded-lg">
-        <h2 class="text-2xl font-bold mb-4">Thank You!</h2>
-      <p class="text-gray-800">You have successfully joined 1020 Hivezzz.</p>
-  </div>
-</div>
-
     <nav class="bg-1020-hivezzz-500 flex items-center justify-center">
       <img src="/img/Another_one_logo_1020Hivezzz(White_with_Yellow).png" alt="1020 Hivezzz logo" class="h-24">
     </nav>
@@ -37,7 +28,7 @@
         <label class="block text-gray-700 font-medium mb-2">Phone Number</label>
         <input class="border border-gray-400 p-2 rounded-lg w-full" type="text" id="phone" name="data[phone]">
       </div>
-       <div class="mb-4">
+      <div class="mb-4">
         <label class="block text-gray-700 font-medium mb-2">Email</label>
         <input class="border border-gray-400 p-2 rounded-lg w-full" type="text" id="email" name="data[email]">
       </div>
@@ -73,12 +64,12 @@
 
 const submitForm = (event) => {
   // Prevent default form submission behavior
-  event.preventDefault();
-
+  
   // Generate a unique 10-digit code
   // var code = generateCode();
-
-
+  
+  
+  event.preventDefault();
   // Set the code value to the hidden input field in the form
   var form = document.getElementById('sheetdb-form');
   var input = document.createElement('input');
@@ -104,16 +95,14 @@ const submitForm = (event) => {
   }
 
   // Display success message to user
-alert('Thank for joining 1020 Hivezzz!')
+  alert('Sign up successful!.');
 }
 
-
-// // Attach event listener to form submission button
-var submitButton = document.getElementById('submit-button');
+// Attach event listener to form submission button
+var submitButton = document.querySelector('#submit-button');
 submitButton.addEventListener('click', submitForm);
 
 
-</script>
-
+    </script>
   </body>
 </html>
