@@ -11,6 +11,15 @@
     <title>1020 Hivezzz Short Buzzz</title>
 </head>
 <body class="bg-black h-screen flex flex-col items-center justify-center">
+  
+  <!-- Successful message, with Tailwind styling! -->
+  <div id="success-message" class="hidden fixed top-0 left-0 w-full h-full bg-green-500 bg-opacity-50 flex  items-center justify-center">
+    <div class="bg-white p-8 rounded-lg">
+        <h2 class="text-2xl font-bold mb-4">Thank You!</h2>
+      <p class="text-gray-800">You have successfully joined 1020 Hivezzz.</p>
+  </div>
+</div>
+
     <nav class="bg-1020-hivezzz-500 flex items-center justify-center">
       <img src="/img/Another_one_logo_1020Hivezzz(White_with_Yellow).png" alt="1020 Hivezzz logo" class="h-24">
     </nav>
@@ -94,6 +103,11 @@ const submitForm = (event) => {
     inputs[i].value = '';
   }
 
+  window.addEventListener('load',()=>{
+    var successMessage = document.getElementById('success-message');
+    successMessage.classList.remove('hidden')
+  })
+
   // Display success message to user
   var successMessage = document.getElementById('success-message');
   successMessage.classList.remove('hidden');
@@ -106,12 +120,6 @@ submitButton.addEventListener('click', submitForm);
 
 
 </script>
-<!-- Successful message, with Tailwind styling! -->
-  <div id="success-message" class="hidden fixed top-0 left-0 w-full h-full bg-green-500 bg-opacity-50 flex  items-center justify-center">
-    <div class="bg-white p-8 rounded-lg">
-        <h2 class="text-2xl font-bold mb-4">Thank You!</h2>
-      <p class="text-gray-800">You have successfully joined 1020 Hivezzz.</p>
-  </div>
-</div>
+
   </body>
 </html>
