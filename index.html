@@ -67,7 +67,7 @@ const submitForm = (event) => {
   event.preventDefault();
 
   // Generate a unique 10-digit code
-  var code = generateCode();
+  // var code = generateCode();
 
 
   // Set the code value to the hidden input field in the form
@@ -75,13 +75,13 @@ const submitForm = (event) => {
   var input = document.createElement('input');
   input.type = 'hidden';
   input.name = 'data[code]';
-  input.value = code;
+  // input.value = code;
   form.appendChild(input);
 
   // Display the code to the user in a new input field
   var codeInput = document.createElement('input');
   codeInput.type = 'text';
-  codeInput.value = code;
+  // codeInput.value = code;
   codeInput.readOnly = true;
   form.insertBefore(codeInput, form.firstChild);
 
