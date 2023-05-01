@@ -28,10 +28,10 @@
         <label class="block text-gray-700 font-medium mb-2">Phone Number</label>
         <input class="border border-gray-400 p-2 rounded-lg w-full" type="text" id="phone" name="data[phone]">
       </div>
-      <!-- <div class="mb-4">
+       <div class="mb-4">
         <label class="block text-gray-700 font-medium mb-2">Email</label>
         <input class="border border-gray-400 p-2 rounded-lg w-full" type="text" id="email" name="data[email]">
-      </div> -->
+      </div>
       <button id='submit-button'class="bg-yellow-400 text-black p-2 rounded-lg hover:bg-yellow-200" onclick="submitForm()">Sign Up</button>
       
     </form>
@@ -53,14 +53,14 @@
 
     <script>
 
-const generateCode = () => {
-  // Generate a random 10-digit code
-  var code = '';
-  for (var i = 0; i < 10; i++) {
-    code += Math.floor(Math.random() * 10);
-  }
-  return code;
-}
+// const generateCode = () => {
+//   // Generate a random 10-digit code
+//   var code = '';
+//   for (var i = 0; i < 10; i++) {
+//     code += Math.floor(Math.random() * 10);
+//   }
+//   return code;
+// }
 
 const submitForm = (event) => {
   // Prevent default form submission behavior
@@ -95,7 +95,7 @@ const submitForm = (event) => {
   }
 
   // Display success message to user
-  alert('Sign up successful! Your unique code is ' + code + '.');
+  alert('Thank You for joining 1020 Hivezzz!.');
 }
 
 // Attach event listener to form submission button
